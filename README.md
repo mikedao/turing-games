@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is to track Turing Games. Allowing people to create campaigns, and allow their players to then write journal entries and store other information about said game.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is app will be a learning app, allowing me and others working on it to learn and practice new techniques, technologies and skills. 
+    
