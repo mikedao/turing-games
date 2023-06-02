@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates_presence_of :password, :first_name, :last_name, :email
 
   has_secure_password
+
+  enum role: [:default, :admin]
 end

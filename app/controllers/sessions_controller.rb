@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.username}!"
-      redirect_to root_path
+      if @user.admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to root_path
+      end
     else 
       flash[:error] = "Invalid credentials"
       render :new, status: :unprocessable_entity
