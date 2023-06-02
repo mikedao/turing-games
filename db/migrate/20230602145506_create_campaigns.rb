@@ -5,6 +5,7 @@ class CreateCampaigns < ActiveRecord::Migration[7.0]
       t.string :image_link
 
       t.timestamps
+      # ! This migration also creates a rich text field called description
     end
   end
 end
