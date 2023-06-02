@@ -1,0 +1,10 @@
+<h1>Campaigns</h1>
+
+<div class='campaigns'>
+  <% @campaigns.each do |campaign| %>
+    <div id="<%= campaign.title %>">
+      <p><h2><%= campaign.title %></h2></p>
+      <p><h2><%= campaign.description %></h2></p>
+      </div>
+    <% end %>
+</div>
