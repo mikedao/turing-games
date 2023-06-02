@@ -12,6 +12,10 @@ class Admin::CampaignsController < Admin::BaseController
     redirect_to admin_campaigns_path
   end
 
+  def show
+    @campaign = Campaign.find(params[:id])
+  end
+
   private
     def campaign_params
       params.require(:campaign).permit(:title, :description, :image_link)

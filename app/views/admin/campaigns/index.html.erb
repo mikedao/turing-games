@@ -2,9 +2,10 @@
 
 <div class='campaigns'>
   <% @campaigns.each do |campaign| %>
-    <div id="<%= campaign.title %>">
+    <div id="<%= campaign.title.parameterize %>">
       <p><h2><%= campaign.title %></h2></p>
-      <p><h2><%= campaign.description %></h2></p>
-      </div>
-    <% end %>
+      <p><%= campaign.description %></p>
+      <p><%= link_to "Details", admin_campaign_path(campaign) %></p>
+    </div>
+  <% end %>
 </div>

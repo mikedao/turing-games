@@ -21,6 +21,7 @@ RSpec.describe 'Admin can create campaigns', type: :feature do
     
     # * This is the code that allows us to fill in the Trix editor
     # * I had to commit a sin to get this to work, used this blog post: https://tosbourn.com/testing-actiontext-without-javascript/
+    # * I couldn't get fill_in_rich_text to work
 
     find(:xpath, "//\*[@id='campaign_description_trix_input_campaign']", visible: false).set('Campaign Description')
     click_on "Create Campaign"

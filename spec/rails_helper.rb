@@ -1,5 +1,3 @@
-require 'capybara'
-require 'action_text/system_test_helper'
 require 'simplecov'
 SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -65,7 +63,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.include ActionText::SystemTestHelper
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
