@@ -6,6 +6,7 @@
     <div id="<%= campaign.title.parameterize %>">
       <p><h2><%= campaign.title %></h2></p>
       <p><%= campaign.description %></p>
+      <p><%= link_to "Edit", edit_admin_campaign_path(campaign) %></p>
     </div>
   <% end %>
 </div>
