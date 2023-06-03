@@ -16,6 +16,10 @@ class Admin::CampaignsController < Admin::BaseController
     @campaign = Campaign.find(params[:id])
   end
 
+  def edit
+    @campaign = Campaign.find(params[:id])
+  end
+
   private
     def campaign_params
       params.require(:campaign).permit(:title, :description, :image_link)
