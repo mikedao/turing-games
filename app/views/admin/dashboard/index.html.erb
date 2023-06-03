@@ -1,2 +1,11 @@
 <h1>Admin Dashboard</h1>
 <%= link_to "Create Campaign", new_admin_campaign_path %>
+
+<div class='campaigns'>
+  <% @campaigns.each do |campaign| %>
+    <div id="<%= campaign.title.parameterize %>">
+      <p><h2><%= campaign.title %></h2></p>
+      <p><%= campaign.description %></p>
+    </div>
+  <% end %>
+</div>
