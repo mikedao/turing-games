@@ -26,6 +26,12 @@ class Admin::CampaignsController < Admin::BaseController
     redirect_to admin_campaigns_path
   end
 
+  def destroy
+    campaign = Campaign.find(params[:id])
+    campaign.destroy
+    redirect_to admin_campaigns_path
+  end
+
   private
     def campaign_params
       params.require(:campaign).permit(:title, :description, :image_link)
