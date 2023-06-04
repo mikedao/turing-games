@@ -1,0 +1,10 @@
+<h1>Create Campaign</h2>
+<%= form_with model: @campaign, url: admin_campaigns_path do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+    <%= form.submit "Create Campaign" %>
+  </div>
+<% end %>

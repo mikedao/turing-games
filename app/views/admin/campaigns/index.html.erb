@@ -1,15 +1,11 @@
-<% if current_user %>
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", new_user_path %>
-  <%= link_to "Log In", login_path %>
-<% end %>
+<h1>Campaigns</h1>
 
 <div class='campaigns'>
   <% @campaigns.each do |campaign| %>
     <div id="<%= campaign.title.parameterize %>">
       <p><h2><%= campaign.title %></h2></p>
       <p><%= campaign.description %></p>
+      <p><%= link_to "Details", admin_campaign_path(campaign) %></p>
     </div>
   <% end %>
 </div>
