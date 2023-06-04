@@ -4,3 +4,7 @@
 <p><%= image_tag @character.image_url if @character.image_url %></p>
 <p> Background: </p>
 <p> <%= @character.background %>
+<% if current_user == @character.user %>
+  <%= link_to "Edit Character", edit_campaign_character_path(@character) %>
+  <%= link_to "Delete Character", campaign_character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

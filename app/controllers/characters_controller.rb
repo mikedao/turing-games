@@ -29,8 +29,8 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find(params[:id])
-    if @character.update_attributes(params[:character])
-      redirect_to @character, :notice  => "Successfully updated character."
+    if @character.update(character_params)
+      redirect_to campaign_character_path(@character), :notice  => "Successfully updated character."
     else
       render :action => 'edit'
     end
@@ -39,7 +39,7 @@ class CharactersController < ApplicationController
   def destroy
     @character = Character.find(params[:id])
     @character.destroy
-    redirect_to characters_url, :notice => "Successfully destroyed character."
+    redirect_to campaign_path(params[:campaign_id]), :notice => "Successfully destroyed character."
   end
 
   private
