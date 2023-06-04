@@ -5,11 +5,13 @@
   <p><%= @campaign.description %></p>
 </div>
 
+<% if !@campaign.users.include?(current_user) %>
+  <%= button_to "Join Campaign", campaign_users_path(campaign: @campaign, user: current_user), method: :post %>
+<% end %>
 
-
-
-<%= button_to "Join Campaign", campaign_users_path(campaign: @campaign, user: current_user), method: :post %>
-<%= button_to "Leave Campaign", campaign_user_path(campaign: @campaign, user: current_user), method: :delete %>
+<% if @campaign.users.include?(current_user) %>
+  <%= button_to "Leave Campaign", campaign_user_path(campaign: @campaign, user: current_user), method: :delete %>
+<% end %>
 
 <div class="campaign-users">
   <h2>Current Players</h2>
