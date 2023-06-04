@@ -3,45 +3,34 @@ require 'rails_helper'
 RSpec.describe 'Admin can delete existing campaigns', type: :feature do
   context 'as an admin user' do
     it 'can delete an existing campaign' do
-      admin = User.create(username: 'admin_test',
-                          password: 'password_test',
-                          first_name: 'first_name_test',
-                          last_name: 'last_name_test',
-                          email: 'email_test',
-                          role: 1
-                        )
+      admin = create(:user, role: 1)
 
-      campaign_1 = Campaign.create( title: 'Campaign 1', 
-                                    description: 'Campaign 1 Description'
-                                  )
-      campaign_2 = Campaign.create( title: 'Campaign 2',
-                                    description: 'Campaign 2 Description'
-                                  )
-                                  
+      campaigns = create_list(:campaign, 2)
+      
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit admin_dashboard_path
 
-      expect(page).to have_content('Campaign 1')
-      expect(page).to have_content('Campaign 1 Description')
-      expect(page).to have_content('Campaign 2')
-      expect(page).to have_content('Campaign 2 Description')
+      expect(page).to have_content(campaigns[0].title)
+      expect(page).to have_content(campaigns[0].description.to_plain_text)
+      expect(page).to have_content(campaigns[1].title)
+      expect(page).to have_content(campaigns[1].description.to_plain_text)
 
-      within '#campaign-1' do
+      within "##{campaigns[0].title.parameterize}" do
         click_on 'Details'
       end
 
-      expect(current_path).to eq(admin_campaign_path(campaign_1))
+      expect(current_path).to eq(admin_campaign_path(campaigns[0]))
 
       click_on 'Delete'
 
       expect(current_path).to eq(admin_campaigns_path)
 
-      expect(page).to_not have_content('Campaign 1')
-      expect(page).to_not have_content('Campaign 1 Description')
+      expect(page).to_not have_content(campaigns[0].title)
+      expect(page).to_not have_content(campaigns[0].description.to_plain_text)
       
-      expect(page).to have_content('Campaign 2')
-      expect(page).to have_content('Campaign 2 Description')
+      expect(page).to have_content(campaigns[1].title)
+      expect(page).to have_content(campaigns[1].description.to_plain_text)
     end
   end
 end

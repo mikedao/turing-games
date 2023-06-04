@@ -8,6 +8,7 @@
 <div class='campaigns'>
   <% @campaigns.each do |campaign| %>
     <div id="<%= campaign.title.parameterize %>">
+      <p><%= image_tag campaign.image_link %></p>
       <p><h2><%= campaign.title %></h2></p>
       <p><%= campaign.description %></p>
       <%= link_to "View Campaign", campaign_path(campaign) if current_user %>

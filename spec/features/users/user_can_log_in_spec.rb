@@ -3,12 +3,8 @@ require 'rails_helper'
 RSpec.describe "Logging In" do
   context "as a visitor" do
     it "can log in with valid credentials" do
-      user = User.create( username: "username_test",
-                          password: "password_test",
-                          first_name: "first_name_test",
-                          last_name: "last_name_test",
-                          email: "email_test"
-                        )
+      user = create(:user)
+
       visit root_path
 
       click_on "Log In"
@@ -26,12 +22,8 @@ RSpec.describe "Logging In" do
     end
 
     it "cannot log in with invalid credentials" do
-      user = User.create( username: "username_test",
-                          password: "password_test",
-                          first_name: "first_name_test",
-                          last_name: "last_name_test",
-                          email: "email_test"
-                        )
+      user = create(:user)
+      
       visit root_path
 
       click_on "Log In"
