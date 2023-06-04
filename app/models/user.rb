@@ -5,4 +5,7 @@ class User < ApplicationRecord
   has_secure_password
 
   enum role: [:default, :admin]
+
+  has_many :campaign_users
+  has_many :campaigns, through: :campaign_users
 end
