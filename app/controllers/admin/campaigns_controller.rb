@@ -34,6 +34,6 @@ class Admin::CampaignsController < Admin::BaseController
 
   private
     def campaign_params
-      params.require(:campaign).permit(:title, :description, :image_link)
+      params.require(:campaign).permit(:title, :description, :image_url)
     end
 end
