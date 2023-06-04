@@ -24,5 +24,24 @@ RSpec.describe 'a user can edit a character' do
       expect(page).to have_content('name_test')
       expect(page).to have_content('Something completely different')
     end
+    
+    it 'cannot edit a character without a name' do
+      user = create(:user)
+      campaign = create(:campaign)
+      character = create(:character, {campaign: campaign, user: user})
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit campaign_character_path(campaign, character)
+
+      click_on 'Edit Character'
+
+      expect(current_path).to eq(edit_campaign_character_path(campaign, character))
+
+      fill_in :character_name, with: ''
+      click_on 'Update Character'
+
+      expect(page).to have_content("Name can't be blank")
+    end
   end 
 end

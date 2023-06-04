@@ -32,7 +32,8 @@ class CharactersController < ApplicationController
     if @character.update(character_params)
       redirect_to campaign_character_path(@character), :notice  => "Successfully updated character."
     else
-      render :action => 'edit'
+      flash[:error] = @character.errors.full_messages.to_sentence
+      render :edit, status: :unprocessable_entity
     end
   end
 
