@@ -3,13 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User can log out', type: :feature do
   context 'as a logged in user' do
     it 'can log out' do
-      user = User.create( username: 'username_test', 
-                          password: 'password_test', 
-                          first_name: 'first_name_test', 
-                          last_name: 'last_name_test', 
-                          email: 'email_test' 
-                        )
-
+      user = create(:user)
+      
       visit login_path
       
       fill_in :username, with: user.username

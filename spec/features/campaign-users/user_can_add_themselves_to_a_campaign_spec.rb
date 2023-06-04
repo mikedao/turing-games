@@ -3,15 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User can add themselves to a campaign', type: :feature do
   context 'as a logged in user' do
     it 'can add themselves to a campaign' do
-      user = User.create( username: 'username_test',
-                          first_name: 'first_name_test',
-                          last_name: 'last_name_test',
-                          email: 'email_test',
-                          password: 'password_test',
-                          role: 0)
-      campaign = Campaign.create( title: 'campaign_1',
-                                  description: 'campaign_1_description'
-                                )
+      user = create(:user)
+      campaign = create(:campaign)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -31,15 +24,8 @@ RSpec.describe 'User can add themselves to a campaign', type: :feature do
     end
 
     it 'can not add themselves to a campaign they are already a part of' do
-      user = User.create( username: 'username_test',
-                          first_name: 'first_name_test',
-                          last_name: 'last_name_test',
-                          email: 'email_test',
-                          password: 'password_test',
-                          role: 0)
-      campaign = Campaign.create( title: 'campaign_1',
-                                  description: 'campaign_1_description'
-                                )
+      user = create(:user)
+      campaign = create(:campaign)
       campaign_user = CampaignUser.create( campaign_id: campaign.id,
                                            user_id: user.id
                                          )
