@@ -11,13 +11,23 @@
 
 <% if @campaign.users.include?(current_user) %>
   <%= button_to "Leave Campaign", campaign_user_path(campaign: @campaign, user: current_user), method: :delete %>
+  <%= link_to "Create Character", new_campaign_character_path(@campaign) %>
 <% end %>
+
 
 <div class="campaign-users">
   <h2>Current Players</h2>
   <ul>
     <% @campaign.users.each do |user| %>
       <li><%= user.username %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="characters">
+  <ul>
+    <% @campaign.characters.each do |character| %>
+      <li><%= link_to character.name, campaign_character_path(@campaign, character) %></li>
     <% end %>
   </ul>
 </div>
