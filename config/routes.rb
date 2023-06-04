@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     get "/dashboard", to: "dashboard#index"
     resources :campaigns
   end
+
+  resources :campaigns, only: [:show]
+  resources :campaign_users, only: [:create, :destroy]
 end
