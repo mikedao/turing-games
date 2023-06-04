@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
 
   resources :campaigns, only: [:show]
-  resources :campaign_users, only: [:create]
+  resources :campaign_users, only: [:create, :destroy]
 end

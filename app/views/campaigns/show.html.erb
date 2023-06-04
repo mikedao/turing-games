@@ -9,6 +9,7 @@
 
 
 <%= button_to "Join Campaign", campaign_users_path(campaign: @campaign, user: current_user), method: :post %>
+<%= button_to "Leave Campaign", campaign_user_path(campaign: @campaign, user: current_user), method: :delete %>
 
 <div class="campaign-users">
   <h2>Current Players</h2>
