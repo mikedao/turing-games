@@ -8,7 +8,7 @@
     <% if @campaign.image.present? %>
       <div id="<%= dom_id(@campaign, :image) %>">
         <%= image_tag @campaign.image.representation(resize_to_limit: [320, 180]) %>
-        <%= link_to "Remove Image", admin_campaign_image_path(@campaign), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <%= link_to "Remove Image", admin_campaign_image_path(@campaign), data: { turbo_method: :delete, turbo_confirm: "Are you sure? Any other changes may be lost." } %>
       </div>
     <% end %>
     <%= form.file_field :image %>
