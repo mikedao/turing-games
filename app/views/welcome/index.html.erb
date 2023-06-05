@@ -11,7 +11,7 @@
   <% @campaigns.each do |campaign| %>
     <div id="<%= dom_id(campaign) %>">
       <div>
-        <p><%= image_tag campaign.image_url %></p>
+        <p><%= image_tag campaign.image.representation(resize_to_limit: [320, 180]) if campaign.image.present? %></p>
       </div>
       <div>
         <p><h2><%= campaign.title %></h2></p>

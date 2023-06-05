@@ -4,6 +4,8 @@
     <div class="field">
       <%= form.label :title %>
       <%= form.text_area :title %>
+      <%= form.label :image %>
+      <%= form.file_field :image %>
       <%= form.label :description %>
       <%= form.rich_text_area :description %>
       <%= form.submit "Create Campaign" %>

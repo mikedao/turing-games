@@ -5,9 +5,15 @@
     <p><h2><%= @campaign.title %></h2></p>
   </div>
   <div>
+    <%= image_tag @campaign.image if @campaign.image.present? %>
+  </div>
+  <div>
     <p><%= @campaign.description %></p>
   </div>
   <div>
     <p><%= button_to 'Delete', admin_campaign_path(@campaign), method: :delete %>
+  </div>
+  <div>
+    <p><%= link_to 'Edit', edit_admin_campaign_path(@campaign) %></p>
   </div>
 </div>

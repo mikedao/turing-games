@@ -21,7 +21,7 @@ RSpec.describe 'Admin can edit existing campaigns', type: :feature do
       find(:xpath, "//\*[@id='campaign_description_trix_input_campaign_#{campaign.id}']", visible: false).set('Changed field')
       click_on 'Update Campaign'
 
-      expect(current_path).to eq(admin_campaigns_path)
+      expect(current_path).to eq(admin_campaign_path(campaign))
 
       expect(page).to have_content('Totally Edited')
       expect(page).to have_content('Changed field')
