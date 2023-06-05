@@ -13,5 +13,6 @@ RSpec.describe User, type: :model do
   describe 'relationships' do
     it { should have_many :campaign_users }
     it { should have_many(:campaigns).through(:campaign_users)}
+    it { should have_many :characters }
   end
 end

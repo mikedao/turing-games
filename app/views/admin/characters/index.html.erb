@@ -1,0 +1,9 @@
+<h1>Characters</h1>
+
+<div class='characters'>
+  <% @characters.each do |character| %>
+    <div id='character-<%= "#{character.id}"%>'>
+      <p><%= link_to character.name, admin_character_path(character) %> - <%= character.campaign %> - <%= character.user.username %></p>
+    </div>
+  <% end %>
+</div>

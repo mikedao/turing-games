@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :campaign_users
   has_many :campaigns, through: :campaign_users
+  has_many :characters
 end

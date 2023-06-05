@@ -1,0 +1,10 @@
+<h1>Create Character</h2>
+<%= form_with model: @character, url: campaign_characters_path do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name %>
+    <%= form.label :background %>
+    <%= form.rich_text_area :background %>
+    <%= form.submit "Create Character" %>
+  </div>
+<% end %>
