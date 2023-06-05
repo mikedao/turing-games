@@ -11,7 +11,7 @@ RSpec.describe 'Admin can edit existing campaigns', type: :feature do
 
       visit admin_dashboard_path
 
-      within "##{campaign.title.parameterize}" do
+      within "##{dom_id(campaign)}" do
         click_on 'Edit'
       end
 

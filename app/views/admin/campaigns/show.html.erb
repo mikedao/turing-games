@@ -1,7 +1,13 @@
 <h1>Campaign Details</h1>
 
 <div id="<%= @campaign.title.parameterize %>">
-  <p><h2><%= @campaign.title %></h2></p>
-  <p><%= @campaign.description %></p>
-  <p><%= button_to 'Delete', admin_campaign_path(@campaign), method: :delete %>
+  <div>
+    <p><h2><%= @campaign.title %></h2></p>
+  </div>
+  <div>
+    <p><%= @campaign.description %></p>
+  </div>
+  <div>
+    <p><%= button_to 'Delete', admin_campaign_path(@campaign), method: :delete %>
+  </div>
 </div>
