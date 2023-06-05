@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
-    resources :campaigns
+    resources :campaigns do
+      resources :image, only: [:destroy], module: :campaigns
+    end
     resources :characters, except: [:new, :create]
   end
 

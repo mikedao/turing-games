@@ -5,6 +5,9 @@
     <p><h2><%= @campaign.title %></h2></p>
   </div>
   <div>
+    <%= image_tag @campaign.image if @campaign.image.present? %>
+  </div>
+  <div>
     <p><%= @campaign.description %></p>
   </div>
   <div>

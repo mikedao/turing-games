@@ -4,7 +4,7 @@
 <div class='campaigns'>
   <% @campaigns.each do |campaign| %>
     <div id="<%= dom_id(campaign) %>">
-      <p><%= image_tag campaign.image_url %></p>
+      <p><%= image_tag campaign.image.representation(resize_to_limit: [320, 180]) if campaign.image.present? %></p>
       <p><h2><%= campaign.title %></h2></p>
       <p><%= campaign.description %></p>
       <p><%= link_to "Details", admin_campaign_path(campaign) %>

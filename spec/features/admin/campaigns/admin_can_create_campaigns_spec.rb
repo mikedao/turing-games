@@ -19,7 +19,7 @@ RSpec.describe 'Admin can create campaigns', type: :feature do
 
       find(:xpath, "//\*[@id='campaign_description_trix_input_campaign']", visible: false).set('Campaign Description')
       click_on "Create Campaign"
-      expect(current_path).to eq(admin_campaigns_path)
+      expect(current_path).to eq(admin_campaign_path(Campaign.last))
       expect(page).to have_content("Campaign Title")
       expect(page).to have_content("Campaign Description")
     end

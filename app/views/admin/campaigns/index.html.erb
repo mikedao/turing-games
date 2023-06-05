@@ -3,7 +3,7 @@
 <div class='campaigns'>
   <% @campaigns.each do |campaign| %>
     <div id="<%= campaign.title.parameterize %>">
-      <p><%= image_tag campaign.image_url if campaign.image_url %></p>
+      <p><%= image_tag campaign.image if campaign.image.present? %></p>
       <p><h2><%= campaign.title %></h2></p>
       <p><%= campaign.description %></p>
       <p><%= link_to "Details", admin_campaign_path(campaign) %></p>

@@ -9,7 +9,7 @@ class Admin::CampaignsController < Admin::BaseController
 
   def create
     campaign = Campaign.create(campaign_params)
-    redirect_to admin_campaigns_path
+    redirect_to admin_campaign_path(campaign)
   end
 
   def show
@@ -23,7 +23,7 @@ class Admin::CampaignsController < Admin::BaseController
   def update
     campaign = Campaign.find(params[:id])
     campaign.update(campaign_params)
-    redirect_to admin_campaigns_path
+    redirect_to admin_campaign_path(campaign)
   end
 
   def destroy
@@ -34,6 +34,6 @@ class Admin::CampaignsController < Admin::BaseController
 
   private
     def campaign_params
-      params.require(:campaign).permit(:title, :description, :image_url)
+      params.require(:campaign).permit(:title, :description, :image)
     end
 end
