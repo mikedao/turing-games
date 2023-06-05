@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "dashboard#index"
     resources :campaigns
+    resources :characters, except: [:new, :create]
   end
 
   resources :campaigns, only: [:show] do
