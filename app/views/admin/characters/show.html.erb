@@ -1,8 +1,16 @@
 <h1><%= @character.name %></h1>
 
-<p>Campaign: <%= @character.campaign.title %></p>
-<p><%= image_tag @character.image_url if @character.image_url %></p>
-<p> Background: </p>
-<p> <%= @character.background %>
-<%= link_to "Edit Character", edit_admin_character_path(@character) %>
-<%= link_to "Delete Character", admin_character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %>
+<div>
+  <p>Campaign: <%= @character.campaign.title %></p>
+</div>
+<div>
+  <p><%= image_tag @character.image_url if @character.image_url %></p>
+</div>
+<div>
+  <p> Background: </p>
+</div>
+<div>
+  <p> <%= @character.background %></p>
+</div>
+<div><%= link_to "Edit Character", edit_admin_character_path(@character) %></div>
+<div><%= link_to "Delete Character", admin_character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %></div>

@@ -1,4 +1,5 @@
 require 'rails_helper'
+include ActionView::RecordIdentifier
 
 RSpec.describe 'Admin can delete existing campaigns', type: :feature do
   context 'as an admin user' do
@@ -16,7 +17,7 @@ RSpec.describe 'Admin can delete existing campaigns', type: :feature do
       expect(page).to have_content(campaigns[1].title)
       expect(page).to have_content(campaigns[1].description.to_plain_text)
 
-      within "##{campaigns[0].title.parameterize}" do
+      within "##{dom_id(campaigns.first)}" do
         click_on 'Details'
       end
 

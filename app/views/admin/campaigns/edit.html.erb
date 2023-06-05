@@ -1,4 +1,5 @@
 <h1>Edit Campaign</h2>
+<div>
 <%= form_with model: @campaign, url: admin_campaign_path do |form| %>
   <div class="field">
     <%= form.label :title %>
@@ -7,4 +8,5 @@
     <%= form.rich_text_area :description %>
     <%= form.submit "Update Campaign" %>
   </div>
+</div>
 <% end %>

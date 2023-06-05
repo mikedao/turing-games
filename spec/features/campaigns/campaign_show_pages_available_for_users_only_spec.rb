@@ -1,4 +1,5 @@
 require 'rails_helper'
+include ActionView::RecordIdentifier
 
 RSpec.describe 'Campaign show pages available for users only', type: :feature do
   context 'as a logged in user' do
@@ -10,7 +11,7 @@ RSpec.describe 'Campaign show pages available for users only', type: :feature do
 
       visit root_path
 
-      within("##{campaign.title.parameterize}") do
+      within("##{dom_id(campaign)}") do
         click_on 'View Campaign'
       end
 
